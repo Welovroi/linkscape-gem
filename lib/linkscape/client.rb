@@ -4,9 +4,10 @@ module Linkscape
       options = Hash === args.last ? args.pop : {}
       @accessID = args.first ? args.shift : (options[:id] || options[:ID] || options[:accessID])
       @secretKey = args.first ? args.shift : (options[:secret] || options[:secretKey] || options[:key])
-      
+      @api_host = options[:api_host] || 'lsapi.seomoz.com'
+
       @options = {
-        :apiHost => 'lsapi.seomoz.com',
+        :apiHost => @api_host,
         :apiRoot => 'linkscape',
         :accessID => @accessID,
         :secretKey => @secretKey
